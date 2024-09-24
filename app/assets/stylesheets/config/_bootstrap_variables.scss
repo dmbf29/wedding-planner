@@ -7,11 +7,11 @@
 // General style
 $font-family-sans-serif: $body-font;
 $headings-font-family:   $headers-font;
-$body-bg:                $light-gray;
+$body-bg:                $darker-gray;
 $font-size-base:         1rem;
 
 // Colors
-$body-color: $gray;
+$body-color: $light-gray;
 $primary:    $blue;
 $success:    $green;
 $info:       $yellow;
@@ -26,3 +26,6 @@ $border-radius-xl:            .5rem;
 $border-radius-xxl:           1rem;
 
 // Override other variables below!
+$navbar-light-color: $light-gray;
+$modal-content-bg: $dark-gray;
+$accordion-button-active-bg: $dark-gray;
