@@ -3,4 +3,16 @@ class PagesController < ApplicationController
 
   def home
   end
+
+  def travel
+  end
+
+  def schedule
+  end
+
+  def question
+  end
+
+  def registry
+  end
 end

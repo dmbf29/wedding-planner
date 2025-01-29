@@ -1,0 +1,33 @@
+.tabs-underlined {
+  display: flex;
+  align-items: center;
+}
+.tabs-underlined {
+  .tab-underlined {
+    color: white;
+    padding: 8px;
+    margin: 8px 16px;
+    opacity: .4;
+    cursor: pointer;
+    text-decoration: none;
+    border-bottom: 4px solid transparent;
+    display: block;
+  }
+  .tab-underlined:hover {
+    opacity: 0.5;
+  }
+  .tab-underlined.active {
+    opacity: 1;
+    border-bottom: 3px solid white;
+  }
+}
+
+@media (min-width: 100px) and (max-width: 575px) {
+  // .tabs-underlined {
+  //   padding: 24px 0;
+  // }
+  .tab-underlined {
+    margin: 4px 8px !important;
+    padding: 4px !important;
+  }
+}
