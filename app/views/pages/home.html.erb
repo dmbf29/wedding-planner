@@ -1,7 +1,23 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path 'smiths/courtyard.jpg' %>);">
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(<%= image_path 'smiths/chairs.jpg' %>);">
   <div class="container">
     <h1><%= t('join_us_korea') %></h1>
+    <h3 class='mt-4'>Doug + Hyelim</h3>
+    <h4 class='mt-2'>July 5th, 2025</h4>
   </div>
 </div>
-<div class="container">
+<div class="container py-6 text-center">
+  <h3 class='fw-bold'>You are Invited</h3>
+  <p>Smith Hanok @ 11am</p>
+  <span><%= link_to 'RSVP', '#', class: 'btn btn-outline-primary mt-3 fs-4'  %></span>
+</div>
+<div class="container text-center">
+  <div class="row g-0">
+    <!-- <div class="col w-100" style="background-size: cover;height: 400px;background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= image_path 'couple/beach.jpg' %>);"> -->
+    <div class="col w-100 border-white-thick">
+      <%= image_tag 'couple/beach.jpg', alt: "text", class: 'w-100' %>
+    </div>
+    <div class="col w-100 border-white-thick">
+      <%= image_tag 'couple/winter.jpg', alt: "text", class: 'w-100' %>
+    </div>
+  </div>
 </div>

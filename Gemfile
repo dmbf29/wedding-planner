@@ -75,3 +75,7 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
 end
+
+# Custom Added
+gem 'rails-i18n'
+gem 'devise-i18n'
