@@ -1,11 +1,22 @@
 <div class="container text-center">
   <div class="row g-0">
     <!-- <div class="col w-100" style="background-size: cover;height: 400px;background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= image_path 'couple/beach.jpg' %>);"> -->
+    <!--
     <div class="col w-100 border-white-thick">
-      <%= image_tag 'couple/beach.jpg', alt: "text", class: 'w-100' %>
+      <%#= image_tag 'couple/beach.jpg', alt: "text", class: 'w-100' %>
     </div>
     <div class="col w-100 border-white-thick">
-      <%= image_tag 'couple/winter.jpg', alt: "text", class: 'w-100' %>
+      <%#= image_tag 'couple/winter.jpg', alt: "text", class: 'w-100' %>
     </div>
+    -->
+    <% (1..32).each_slice(5).with_index do |slice, i| %>
+      <div class="image-grid mb-2" style="direction: <%= 'rtl' if i.odd? %>;">
+        <% slice.each_with_index do |num, index| %>
+          <div class="image-grid-item <%= index.zero? ? 'main' : "item#{index}" %>">
+            <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-item' %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>
