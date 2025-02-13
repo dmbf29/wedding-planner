@@ -6,5 +6,6 @@ Rails.application.routes.draw do
     get 'schedule', to: 'pages#schedule'
     get 'question', to: 'pages#question'
     get 'registry', to: 'pages#registry'
+    get 'rsvp', to: 'pages#rsvp'
   end
 end
