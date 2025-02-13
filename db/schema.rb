@@ -34,20 +34,20 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_10_055813) do
     t.boolean "kids_meal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "arrival"
-    t.date "departure"
     t.index ["party_id"], name: "index_invitations_on_party_id"
     t.index ["person_id"], name: "index_invitations_on_person_id"
   end
 
   create_table "parties", force: :cascade do |t|
-    t.string "status"
+    t.string "status", default: "pending"
     t.string "token"
     t.boolean "can_bring_on"
     t.string "group"
     t.bigint "event_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "arrival"
+    t.date "departure"
     t.index ["event_id"], name: "index_parties_on_event_id"
   end
 
