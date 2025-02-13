@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center mb-5">
   <div class="row g-0">
     <!-- <div class="col w-100" style="background-size: cover;height: 400px;background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= image_path 'couple/beach.jpg' %>);"> -->
     <!--
@@ -18,5 +18,10 @@
         <% end %>
       </div>
     <% end %>
+    <div class="image-grid-mobile">
+      <% (1..32).each do |num| %>
+        <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
+      <% end %>
+    </div>
   </div>
 </div>

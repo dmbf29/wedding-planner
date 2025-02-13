@@ -1,16 +1,30 @@
 .image-grid {
   display: grid;
+  gap: 10px;
+  height: 500px;
   grid-template-areas:
     "main main item1 item2"
     "main main item3 item4";
-  gap: 10px;
-  height: 500px;
   grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.image-grid-mobile {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: 1fr 1fr;
 }
 
 .image-grid-item {
   overflow: hidden;
   border-radius: 8px;
+}
+
+.image-grid-mobile-item {
+  overflow: hidden;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
 
 .main {
@@ -38,4 +52,54 @@
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .image-grid {
+    display: none;
+  }
+  .image-grid-mobile {
+    display: grid;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .image-grid {
+    display: none;
+  }
+  .image-grid-mobile {
+    display: grid;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .image-grid {
+    display: grid;
+  }
+  .image-grid-mobile {
+    display: none;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .image-grid {
+    display: grid;
+  }
+  .image-grid-mobile {
+    display: none;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .image-grid {
+    display: grid;
+  }
+  .image-grid-mobile {
+    display: none;
+  }
 }
