@@ -1,4 +1,15 @@
 <%= turbo_frame_tag :invitation do %>
-  <h1>In the view</h1>
-  <%= link_to 'Search Again', rsvp_path, class: 'btn btn-secondary', data: { turbo_frame: '_top' }  %>
+  <% if @party %>
+    <div class='py-3 border-top border-bottom d-flex justify-content-between align-items-center'>
+      <div class="">
+        <% @party.invitations.each do |invitation| %>
+          <p class='m-0'><%= invitation.person.full_name %></p>
+        <% end %>
+      </div>
+      <%= link_to 'SELECT', '#', class: 'btn btn-primary'  %>
+    </div>
+  <% else %>
+    <p>Sorry we couldn't find an invitation with <code><%= params[:name] %></code></p>
+  <% end %>
+  <%= link_to 'Search Again', rsvp_path, class: 'btn btn-outline-secondary mt-5', data: { turbo_frame: '_top' }  %>
 <% end %>
