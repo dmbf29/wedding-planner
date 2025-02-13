@@ -1,0 +1,4 @@
+<%= turbo_frame_tag :invitation do %>
+  <h1>In the view</h1>
+  <%= link_to 'Search Again', rsvp_path, class: 'btn btn-secondary', data: { turbo_frame: '_top' }  %>
+<% end %>

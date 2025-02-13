@@ -1,5 +1,20 @@
-<div class="container py-6 text-center mb-5">
-  <h3 class='fw-bold'>You are Invited</h3>
-  <p>Smith Hanok @ 11:30am</p>
-  <p>RSVP coming soon...</p>
+<div class="container mb-5">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-6 col-md-4 mt-3">
+      <%= turbo_frame_tag :invitation do %>
+        <h3 class='fw-bold mb-3'>You are Invited</h3>
+        <%= form_with url: invitations_path, method: :get, data: { turbo_frame: :invitation } do %>
+          <%= text_field_tag :name,
+            params[:name],
+            class: "form-control",
+            placeholder: "First and Last Name"
+        %>
+          <div class="form-text">
+            Ex. Steve Philippine (not The Boughers or Madigans)
+          </div>
+          <%= submit_tag "Find Your Invitation", name: "", class: "btn btn-primary mt-4 w-100" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>
