@@ -1,12 +1,12 @@
 <%= turbo_frame_tag :invitation do %>
-  <% if @party %>
+  <% if @group %>
     <div class='py-3 border-top border-bottom d-flex justify-content-between align-items-center'>
       <div class="">
-        <% @party.invitations.each do |invitation| %>
+        <% @group.invitations.each do |invitation| %>
           <p class='m-0'><%= invitation.person.full_name %></p>
         <% end %>
       </div>
-      <%= link_to 'SELECT', party_path(@party), data: { turbo_frame: '_top' }, class: 'btn btn-primary'  %>
+      <%= link_to 'SELECT', group_path(@group), data: { turbo_frame: '_top' }, class: 'btn btn-primary'  %>
     </div>
   <% else %>
     <p>Sorry we couldn't find an invitation with <code><%= params[:name] %></code></p>

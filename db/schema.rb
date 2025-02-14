@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_02_10_055813) do
+ActiveRecord::Schema[7.1].define(version: 2025_02_14_050441) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "celebrations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string "name"
@@ -24,31 +30,28 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_10_055813) do
     t.string "location"
     t.string "address"
     t.datetime "date"
+    t.bigint "celebration_id", null: false
+    t.index ["celebration_id"], name: "index_events_on_celebration_id"
+  end
+
+  create_table "groups", force: :cascade do |t|
+    t.string "token"
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "invitations", force: :cascade do |t|
-    t.bigint "party_id", null: false
     t.bigint "person_id", null: false
     t.string "status", default: "pending"
     t.text "notes"
     t.boolean "kids_meal"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["party_id"], name: "index_invitations_on_party_id"
-    t.index ["person_id"], name: "index_invitations_on_person_id"
-  end
-
-  create_table "parties", force: :cascade do |t|
-    t.string "status", default: "pending"
-    t.string "token"
-    t.boolean "can_bring_on"
-    t.string "group"
     t.bigint "event_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.date "arrival"
-    t.date "departure"
-    t.index ["event_id"], name: "index_parties_on_event_id"
+    t.boolean "wants_guest", default: false
+    t.index ["event_id"], name: "index_invitations_on_event_id"
+    t.index ["person_id"], name: "index_invitations_on_person_id"
   end
 
   create_table "people", force: :cascade do |t|
@@ -57,6 +60,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_10_055813) do
     t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "group_id"
+    t.index ["group_id"], name: "index_people_on_group_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -71,7 +76,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_02_10_055813) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "invitations", "parties"
+  add_foreign_key "events", "celebrations"
+  add_foreign_key "invitations", "events"
   add_foreign_key "invitations", "people"
-  add_foreign_key "parties", "events"
+  add_foreign_key "people", "groups"
 end

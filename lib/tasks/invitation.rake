@@ -2,7 +2,7 @@ namespace :invitation do
   desc "Generates invitations"
   task create_all: :environment do
     wedding = Event.create(
-      name: 'Korea Wedding',
+      name: 'Wedding Cermony',
       date: DateTime.new(2025, 07, 05, 11, 30, 0),
       location: 'Smith Hanok'
     )

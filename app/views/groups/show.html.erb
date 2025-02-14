@@ -1,0 +1,8 @@
+<div class="container">
+  <% @events.each_with_index do |event, index| %>
+    <%= render 'events/info', event: event, index: index, final: @events.last == event %>
+    <%#= render 'invitations/decide', group: @group  %>
+    <% @group.invitations.where(event: event).each do |invitation| %>
+    <% end %>
+  <% end %>
+</div>

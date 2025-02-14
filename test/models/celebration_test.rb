@@ -1,6 +1,6 @@
 require "test_helper"
 
-class PartyTest < ActiveSupport::TestCase
+class CelebrationTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

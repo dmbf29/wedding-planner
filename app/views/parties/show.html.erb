@@ -1,8 +1,0 @@
-<div class="container">
-  <% @events.each_with_index do |event, index| %>
-    <small><%= index + 1 %> of <%= @events.count %> events</small>
-    <h1><%= event.name %></h1>
-    <p><%= event.location %></p>
-    <p><%= event.date.strftime('%b %e, %l:%M %p') %></p>
-  <% end %>
-</div>
