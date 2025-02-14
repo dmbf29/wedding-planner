@@ -8,5 +8,6 @@ Rails.application.routes.draw do
     get 'registry', to: 'pages#registry'
     get 'rsvp', to: 'pages#rsvp'
     resources :invitations, only: [:index]
+    resources :parties, only: [:show]
   end
 end
