@@ -6,7 +6,7 @@
           <p class='m-0'><%= invitation.person.full_name %></p>
         <% end %>
       </div>
-      <%= link_to 'SELECT', party_path(@party), class: 'btn btn-primary'  %>
+      <%= link_to 'SELECT', party_path(@party), data: { turbo_frame: '_top' }, class: 'btn btn-primary'  %>
     </div>
   <% else %>
     <p>Sorry we couldn't find an invitation with <code><%= params[:name] %></code></p>
