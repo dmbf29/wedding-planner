@@ -1,4 +1,6 @@
-<small><%= index + 1 %> of <%= @events.count %> events</small>
-<h1><%= event.name %></h1>
-<p><i class="fa-solid fa-map-pin"></i> <%= event.location %></p>
-<p><i class="fa-regular fa-calendar"></i> <%= event.date.strftime('%b %e, %l:%M %p') %></p>
+<div class="d-flex justify-content-center flex-column align-items-center mb-2">
+  <small class="fw-light"><%= index + 1 %> of <%= @events.count %> events</small>
+  <h1><%= event.name %></h1>
+  <p class='m-0'><i class="fa-regular fa-calendar"></i> <%= event.date.strftime('%b %e, %l:%M %p') %></p>
+  <p class='m-0 fw-light'><i class="fa-solid fa-map-pin"></i> <%= event.location %></p>
+</div>

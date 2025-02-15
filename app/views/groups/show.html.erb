@@ -1,14 +1,20 @@
 <div class="container">
   <% @events.each_with_index do |event, index| %>
-    <%= render 'events/info', event: event, index: index, final: @events.last == event %>
-    <%#= render 'invitations/decide', group: @group  %>
-    <% @group.invitations.where(event: event).each do |invitation| %>
-      <div class="d-flex justify-content-between align-items-center">
-        <div class="flex-grow-1">
-          <small class='m-0'><%= invitation.person.full_name %></small>
+    <div class="mb-5">
+      <%= render 'events/info', event: event, index: index, final: @events.last == event %>
+      <%#= render 'invitations/decide', group: @group  %>
+      <% @group.invitations.where(event: event).each do |invitation| %>
+        <div class="row justify-content-center align-items-center">
+          <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="flex-grow-1">
+                <small class='m-0'><%= invitation.person.full_name %></small>
+              </div>
+              <%= render 'invitations/invitation', invitation: invitation %>
+            </div>
+          </div>
         </div>
-        <%= render 'invitations/invitation', invitation: invitation %>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   <% end %>
 </div>
