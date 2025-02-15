@@ -15,7 +15,7 @@ class InvitationsController < ApplicationController
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace("invitation-#{@invitation.id}",
           partial: "invitations/invitation",
-          locals: { invitation: @invitation }
+          locals: { invitation: @invitation, solo: @invitation.person.group.people.count == 1 }
         )
       end
       format.html { redirect_to group_path(@invitation.person.group) }
@@ -25,6 +25,6 @@ class InvitationsController < ApplicationController
   private
 
   def invitation_params
-    params.require(:invitation).permit(:status)
+    params.require(:invitation).permit(:status, :wants_guest)
   end
 end
