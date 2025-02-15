@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     get 'question', to: 'pages#question'
     get 'registry', to: 'pages#registry'
     get 'rsvp', to: 'pages#rsvp'
-    resources :invitations, only: [:index]
+    resources :invitations, only: [:index, :update]
     resources :groups, only: [:show]
   end
 end

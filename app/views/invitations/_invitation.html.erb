@@ -1,0 +1,14 @@
+<div class="flex-grow-0 d-flex align-item-center">
+  <%= simple_form_for invitation, html: { class: 'me-2' } do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: 'attending'} %>
+    <%= f.button :button, class: "btn #{invitation.attending? ? 'btn-primary': 'btn-outline-secondary text-white'}" do %>
+      <i class="fa-regular fa-circle-check"></i> Will Attend
+    <% end %>
+  <% end %>
+  <%= simple_form_for invitation do |f| %>
+    <%= f.input :status, as: :hidden, input_html: { value: 'declined'} %>
+    <%= f.button :button, class: "btn #{invitation.declined? ? 'btn-secondary': 'btn-outline-secondary text-white'}" do %>
+      <i class="fa-regular fa-circle-xmark"></i> Decline
+    <% end %>
+  <% end %>
+</div>
