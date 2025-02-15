@@ -1,15 +1,20 @@
 namespace :invitation do
   desc "Generates invitations"
   task create_all: :environment do
-    wedding = Event.create(
+    celebration = Celebration.find_or_create_by(name: 'Korea Wedding')
+
+    Event.find_or_create_by(
       name: 'Wedding Cermony',
       date: DateTime.new(2025, 07, 05, 11, 30, 0),
-      location: 'Smith Hanok'
+      location: 'Smith Hanok',
+      celebration: celebration
     )
-    baseball = Event.create(
+
+    Event.find_or_create_by(
       name: 'Baseball Game',
       date: DateTime.new(2025, 07, 03, 18, 30, 0),
-      location: 'Jamsil Stadium'
+      location: 'Jamsil Stadium',
+      celebration: celebration
     )
 
     full_list = {
@@ -50,14 +55,23 @@ namespace :invitation do
     }
 
     full_list.each do |group_name, attendees|
-      people = Person.create(attendees)
-      [wedding, baseball].each do |event|
-        party = Party.create(event: event, group: group_name)
-        people.each do |person|
-          Invitation.create(party: party, person: person)
+      group = Group.find_or_create_by(name: group_name)
+      attendees.each do |attendee|
+        person = Person.find_or_create_by(attendee.merge(group: group))
+        celebration.events.each do |event|
+          Invitation.find_or_create_by(event: event, person: person)
         end
       end
     end
   end
 
 end
+
+
+
+# [wedding, baseball].each do |event|
+#   party = Party.create(event: event, group: group_name)
+#   people.each do |person|
+#     Invitation.create(party: party, person: person)
+#   end
+# end

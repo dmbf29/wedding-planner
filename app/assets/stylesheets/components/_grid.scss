@@ -20,7 +20,6 @@
 }
 
 .image-grid-mobile-item {
-  overflow: hidden;
   border-radius: 8px;
   height: 100%;
   width: 100%;
@@ -61,6 +60,8 @@
   }
   .image-grid-mobile {
     display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
@@ -71,6 +72,8 @@
   }
   .image-grid-mobile {
     display: grid;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
   }
 }
 
