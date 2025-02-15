@@ -13,9 +13,8 @@ class InvitationsController < ApplicationController
     @invitation.update(invitation_params)
     respond_to do |format|
       format.turbo_stream do
-        render turbo_stream: turbo_stream.replace(
-          partial: "invitiations/invitation",
-          target: "invitation_#{@invitation.id}",
+        render turbo_stream: turbo_stream.replace("invitation-#{@invitation.id}",
+          partial: "invitations/invitation",
           locals: { invitation: @invitation }
         )
       end
