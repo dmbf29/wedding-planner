@@ -18,6 +18,16 @@ namespace :invitation do
     )
 
     full_list = {
+      'Us' => [
+        {
+          first_name: 'Douglas ',
+          last_name: 'Berkley'
+        },
+        {
+          first_name: 'Hyelim',
+          last_name: 'Kim',
+        }
+      ],
       'Poltas' => [
         {
           first_name: 'John ',
