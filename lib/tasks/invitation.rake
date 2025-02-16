@@ -20,7 +20,7 @@ namespace :invitation do
     full_list = {
       'Us' => [
         {
-          first_name: 'Douglas ',
+          first_name: 'Douglas',
           last_name: 'Berkley'
         },
         {

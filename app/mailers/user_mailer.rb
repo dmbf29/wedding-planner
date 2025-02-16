@@ -9,6 +9,6 @@ class UserMailer < ApplicationMailer
     @person = params[:person]
     @group = @person.group
     @events = @person.events
-    mail(to: @person.email, subject: "Doug & Hyelim's Wedding RSVP")
+    mail(to: @person.email, subject: "Doug & Hyelim's Wedding RSVP") if @person.email.present?
   end
 end

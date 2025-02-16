@@ -14,7 +14,7 @@ class GroupsController < ApplicationController
   def send_email
     @group = Group.find(params[:id])
     @group.people.each do |person|
-      UserMailer.with(person: person).rsvp.deliver_now
+      UserMailer.with(person: person).rsvp.deliver_now if person.email.present?
     end
     redirect_to travel_path, notice: "Thank you for completing your RSVP!"
   end
