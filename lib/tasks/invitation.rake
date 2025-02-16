@@ -18,20 +18,6 @@ namespace :invitation do
     )
 
     full_list = {
-      'Hayes' => [
-        {
-          first_name: 'Rory',
-          last_name: "O'Reilly Hayes"
-        },
-        {
-          first_name: 'Eva',
-          last_name: 'Pfoertner'
-        },
-        {
-          first_name: 'Lyra',
-          last_name: "O'Reilly Hayes"
-        }
-      ],
       'Poltas' => [
         {
           first_name: 'John ',
@@ -52,16 +38,6 @@ namespace :invitation do
           last_name: 'Berkley',
         }
       ],
-      'Madigans' => [
-        {
-          first_name: 'Casey',
-          last_name: 'Madigan'
-        },
-        {
-          first_name: 'Edward',
-          last_name: 'Madigan',
-        }
-      ],
       'Boughers' => [
         {
           first_name: 'Tricia',
@@ -78,6 +54,40 @@ namespace :invitation do
         {
           first_name: 'Kara',
           last_name: 'Bougher',
+        }
+      ],
+      'Nathan' => [
+        {
+          first_name: 'Nathan',
+          last_name: 'Polta'
+        },
+        {
+          first_name: 'Bryanna',
+          last_name: 'Guy',
+        }
+      ],
+      'Hayes' => [
+        {
+          first_name: 'Rory',
+          last_name: "O'Reilly Hayes"
+        },
+        {
+          first_name: 'Eva',
+          last_name: 'Pfoertner'
+        },
+        {
+          first_name: 'Lyra',
+          last_name: "O'Reilly Hayes"
+        }
+      ],
+      'Madigans' => [
+        {
+          first_name: 'Casey',
+          last_name: 'Madigan'
+        },
+        {
+          first_name: 'Edward',
+          last_name: 'Madigan',
         }
       ],
       'Pete' => [
@@ -142,10 +152,38 @@ namespace :invitation do
           last_name: 'Johnston'
         }
       ],
+      'Miguel' => [
+        {
+          first_name: 'Michael',
+          last_name: 'Zinn'
+        }
+      ],
+      'Dan' => [
+        {
+          first_name: 'Dan',
+          last_name: 'Booth'
+        }
+      ],
+      'Suzie' => [
+        {
+          first_name: 'Suzie',
+          last_name: 'Moon'
+        }
+      ],
       'Eun Young' => [
         {
           first_name: '정은영',
           last_name: ''
+        }
+      ],
+      'Angela' => [
+        {
+          first_name: 'Angela',
+          last_name: 'Lee'
+        },
+        {
+          first_name: 'Steven',
+          last_name: 'Thomson'
         }
       ],
       'Momo' => [
