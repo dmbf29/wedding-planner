@@ -8,7 +8,7 @@
         <% end %>
       <% end %>
       <%= link_to 'SEND RSVP', send_email_group_path(@group), data: { turbo_method: :post }, class: 'w-100 btn btn-primary' %>
-      <%= link_to 'Skip', travel_path(notice: "Thank you for completing your RSVP!"),
+      <%= link_to 'Skip', travel_path(email: "sent"),
           class: 'text-white text-center text-decoration-none d-block mt-3 text-opacity-75'
         %>
     </div>
