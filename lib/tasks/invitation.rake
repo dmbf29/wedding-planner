@@ -18,6 +18,40 @@ namespace :invitation do
     )
 
     full_list = {
+      'Hayes' => [
+        {
+          first_name: 'Rory',
+          last_name: "O'Reilly Hayes"
+        },
+        {
+          first_name: 'Eva',
+          last_name: 'Pfoertner'
+        },
+        {
+          first_name: 'Lyra',
+          last_name: "O'Reilly Hayes"
+        }
+      ],
+      'Poltas' => [
+        {
+          first_name: 'John ',
+          last_name: 'Polta'
+        },
+        {
+          first_name: 'Sally',
+          last_name: 'Polta',
+        }
+      ],
+      'Berkleys' => [
+        {
+          first_name: 'Michael',
+          last_name: 'Berkley'
+        },
+        {
+          first_name: 'Joan',
+          last_name: 'Berkley',
+        }
+      ],
       'Madigans' => [
         {
           first_name: 'Casey',
@@ -50,6 +84,74 @@ namespace :invitation do
         {
           first_name: 'Peter',
           last_name: 'Edwards'
+        }
+      ],
+      'Fox' => [
+        {
+          first_name: 'Sean',
+          last_name: 'Fox'
+        }
+      ],
+      'Smiths' => [
+        {
+          first_name: 'Amy',
+          last_name: 'Smith'
+        },
+        {
+          first_name: 'David',
+          last_name: 'Smith'
+        }
+      ],
+      'Beck' => [
+        {
+          first_name: 'Dave',
+          last_name: 'Beck'
+        }
+      ],
+      'Nate' => [
+        {
+          first_name: 'Nathan',
+          last_name: 'Mistler'
+        }
+      ],
+      'Browns' => [
+        {
+          first_name: 'Justin-Philmore',
+          last_name: 'Brown'
+        },
+        {
+          first_name: 'Sungji',
+          last_name: 'Brown'
+        }
+      ],
+      'Jeff' => [
+        {
+          first_name: 'Jeff',
+          last_name: 'Spencer'
+        }
+      ],
+      'Dylan' => [
+        {
+          first_name: 'Dylan',
+          last_name: 'Coleman'
+        }
+      ],
+      'Mej' => [
+        {
+          first_name: 'Michael',
+          last_name: 'Johnston'
+        }
+      ],
+      'Eun Young' => [
+        {
+          first_name: '정은영',
+          last_name: ''
+        }
+      ],
+      'Momo' => [
+        {
+          first_name: 'Momo',
+          last_name: ''
         }
       ],
     }

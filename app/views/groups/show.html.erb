@@ -1,12 +1,24 @@
-<div class="container">
-  <% @events.each_with_index do |event, index| %>
-    <div class="mb-5">
-      <%= render 'events/info', event: event, index: index, final: @events.last == event %>
-      <% @group.invitations.where(event: event).each do |invitation| %>
-        <div class="row justify-content-center align-items-center">
-          <%= render 'invitations/invitation', invitation: invitation, solo: @group.people.length == 1 %>
-        </div>
+<div class="container mb-5">
+  <div class="mb-2">
+    <%= render 'events/info', event: @current_event, index: @index, final: @events.last == @current_event %>
+    <% @invitations.each do |invitation| %>
+      <div class="row justify-content-center align-items-center">
+        <%= render 'invitations/invitation', invitation: invitation, solo: @group.people.length == 1 %>
+      </div>
+    <% end %>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <% if @events.last == @current_event %>
+        <%= link_to 'Finish', group_path(@group, page: @index + 1), class: 'btn btn-primary w-100' %>
+      <% else %>
+        <%= link_to 'Continue', group_path(@group, page: @index + 1), class: 'btn btn-light w-100' %>
+      <% end %>
+      <% unless @events.first == @current_event %>
+        <%= link_to 'Back', group_path(@group, page: @index - 1),
+          class: 'text-white text-center text-decoration-none d-block mt-3 text-opacity-75'
+        %>
       <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

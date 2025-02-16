@@ -19,10 +19,24 @@
     </div>
   </div>
   <% if solo %>
-    <div class="text-center mt-1">
+    <div class="text-center my-1">
       <%= simple_form_for invitation, namespace: "invitation-toggle-#{invitation.id}", data: { controller: 'auto-submit' } do |f| %>
         <%= f.input :wants_guest, as: :boolean, label: "I'd like to bring a guest", input_html: { class: "toggle", data: { action: 'auto-submit#submit' } }  %>
       <% end %>
+    </div>
+  <% end %>
+  <% if false %>
+    <div class="text-center mt-1">
+      <small class="" data-bs-toggle="collapse" data-bs-target="#add-notes-<%= invitation.id %>" aria-expanded="false" aria-controls="cadd-notes-<%= invitation.id %>">
+        Add note <i class="fa-solid fa-chevron-down"></i>
+      </small>
+      <div class="collapse" id="add-notes-<%= invitation.id %>">
+        <div class="card card-body">
+          <%= simple_form_for invitation, namespace: "invitation-notes-#{invitation.id}", data: { controller: 'auto-submit' } do |f| %>
+            <%= f.input :notes, label: false, input_html: { class: "", data: { action: 'auto-submit#submit' } }  %>
+          <% end %>
+        </div>
+      </div>
     </div>
   <% end %>
 </div>
