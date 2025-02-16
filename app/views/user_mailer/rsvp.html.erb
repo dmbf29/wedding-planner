@@ -2,15 +2,17 @@
   <h1>🎉 Your RSVP is Confirmed! 🎉</h1>
   <p>Thank you for confirming your details.</p>
   <% @events.each do |event| %>
+    <hr>
     <h3><%= event.name %></h3>
-    <p><%= event.date.strftime('%b %e, %l:%M %p') %></p>
-    <p><%= event.location %></p>
-    <% event.invitations.where(person: @group.people) do |invitation| %>
-      <h5><%= invitation.person.full_name %></h5>
-      <p>RSVP status: <%= invitation.status %></p>
-      <p>RSVP notes: <%= invitation.notes %></p>
+    <p style="margin-bottom: 4px; font-weight: light"><small><i class="fa-regular fa-calendar"></i>  <%= event.date.strftime('%b %e, %l:%M %p') %></small></p>
+    <p style="margin-bottom: 4px; font-weight: light"><small><i class="fa-solid fa-map-pin"></i>  <%= event.location %></small></p>
+    <% event.invitations.where(person: @group.people).each do |invitation| %>
+      <p><%= invitation.person.full_name %>: <code style="color: #715AFF"><%= invitation.status %></code></p>
+      <% if invitation.notes %>
+        <blockquote><%= invitation.notes %></blockquote>
+      <% end %>
     <% end %>
   <% end %>
-  <a href="<%= root_url %>" class="button">Wedding Site</a>
+  <a href="<%= root_url %>" target="_blank" class="button">Wedding Site</a>
   <p class="footer">If you have any questions, feel free to reply to this email.</p>
 </div>

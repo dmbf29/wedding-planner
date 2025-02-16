@@ -3,16 +3,16 @@
     <%= render 'events/info', event: @current_event, index: @index, final: @events.last == @current_event %>
     <% @invitations.each do |invitation| %>
       <div class="row justify-content-center align-items-center">
-        <%= render 'invitations/invitation', invitation: invitation, solo: @group.people.length == 1 %>
+        <%= render 'invitations/invitation', invitation: invitation, solo: @group.people.length == 1, can_bring_guest: @events.last != @current_event %>
       </div>
     <% end %>
   </div>
   <div class="row justify-content-center">
     <div class="col-12 col-sm-10 col-md-8 col-lg-6">
       <% if @events.last == @current_event %>
-        <%= link_to 'Finish', group_path(@group, page: @index + 1), class: 'btn btn-primary w-100' %>
+        <%= link_to 'Continue', email_group_path(@group), class: 'btn btn-light w-100' %>
       <% else %>
-        <%= link_to 'Continue', group_path(@group, page: @index + 1), class: 'btn btn-light w-100' %>
+        <%= link_to 'Next Event', group_path(@group, page: @index + 1), class: 'btn btn-light w-100' %>
       <% end %>
       <% unless @events.first == @current_event %>
         <%= link_to 'Back', group_path(@group, page: @index - 1),

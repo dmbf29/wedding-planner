@@ -18,7 +18,7 @@
       <% end %>
     </div>
   </div>
-  <% if solo %>
+  <% if can_bring_guest %>
     <div class="text-center my-1">
       <%= simple_form_for invitation, namespace: "invitation-toggle-#{invitation.id}", data: { controller: 'auto-submit' } do |f| %>
         <%= f.input :wants_guest, as: :boolean, label: "I'd like to bring a guest", input_html: { class: "toggle", data: { action: 'auto-submit#submit' } }  %>

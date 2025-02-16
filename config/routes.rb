@@ -7,7 +7,13 @@ Rails.application.routes.draw do
     get 'question', to: 'pages#question'
     get 'registry', to: 'pages#registry'
     get 'rsvp', to: 'pages#rsvp'
+    resources :people, only: [:update]
     resources :invitations, only: [:index, :update]
-    resources :groups, only: [:show]
+    resources :groups, only: [:show] do
+      member do
+        get :email
+        post :send_email
+      end
+    end
   end
 end

@@ -14,7 +14,7 @@ class InvitationsController < ApplicationController
       format.turbo_stream do
         render turbo_stream: turbo_stream.replace("invitation-#{@invitation.id}",
           partial: "invitations/invitation",
-          locals: { invitation: @invitation, solo: @invitation.person.group.people.count == 1 }
+          locals: { invitation: @invitation, solo: @invitation.person.group.people.count == 1, can_bring_guest: @invitation.event != @invitation.event.celebration.events.order(date: :asc).last }
         )
       end
       format.html { redirect_to group_path(@invitation.person.group) }

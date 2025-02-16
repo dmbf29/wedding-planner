@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-12 col-sm-10 col-md-8 col-lg-6">
+      <h3>Last Step! Email RSVP Details</h3>
+      <% @group.people.each do |person| %>
+        <%= simple_form_for person, data: { controller: 'auto-submit' } do |f| %>
+          <%= f.input :email, label: "Email for #{person.full_name} (optional)", input_html: { data: { action: 'input->auto-submit#submit' } } %>
+        <% end %>
+      <% end %>
+      <%= link_to 'SEND RSVP', send_email_group_path(@group), data: { turbo_method: :post }, class: 'w-100 btn btn-primary' %>
+      <%= link_to 'Skip', travel_path(notice: "Thank you for completing your RSVP!"),
+          class: 'text-white text-center text-decoration-none d-block mt-3 text-opacity-75'
+        %>
+    </div>
+  </div>
+</div>
