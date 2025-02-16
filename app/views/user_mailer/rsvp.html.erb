@@ -1,0 +1,16 @@
+<div class="container">
+  <h1>🎉 Your RSVP is Confirmed! 🎉</h1>
+  <p>Thank you for confirming your details.</p>
+  <% @events.each do |event| %>
+    <h3><%= event.name %></h3>
+    <p><%= event.date.strftime('%b %e, %l:%M %p') %></p>
+    <p><%= event.location %></p>
+    <% event.invitations.where(person: @group.people) do |invitation| %>
+      <h5><%= invitation.person.full_name %></h5>
+      <p>RSVP status: <%= invitation.status %></p>
+      <p>RSVP notes: <%= invitation.notes %></p>
+    <% end %>
+  <% end %>
+  <a href="<%= root_url %>" class="button">Wedding Site</a>
+  <p class="footer">If you have any questions, feel free to reply to this email.</p>
+</div>

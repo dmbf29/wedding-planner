@@ -1,6 +1,7 @@
 class Person < ApplicationRecord
   belongs_to :group
   has_many :invitations
+  has_many :events, through: :invitations
   validates :first_name, uniqueness: { scope: :last_name }
 
   def full_name
