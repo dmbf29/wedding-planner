@@ -6,11 +6,11 @@
       <p style="margin-bottom: 4px; font-weight: light"><small><i class="fa-regular fa-calendar"></i>  <%= event.date.strftime('%b %e, %l:%M %p') %></small></p>
       <p style="margin-bottom: 4px; font-weight: light"><small><i class="fa-solid fa-map-pin"></i>  <%= event.location %></small></p>
     </div>
-    <h4 class="text-primary text-center text-decoration-underline">Attending ( <%= event.invitations.attending.count %> / <%= event.invitations.count %> )</h4>
+    <h4 class="text-primary text-center text-decoration-underline mb-3">Attending ( <%= event.invitations.attending.count %> / <%= event.invitations.count %> )</h4>
     <%= render 'admin/invitations/list', invitations: event.invitations.attending, placeholder: 'No one is attending yet.' %>
-    <h4 class="text-primary text-center text-decoration-underline">Declined ( <%= event.invitations.declined.count %> / <%= event.invitations.count %> )</h4>
+    <h4 class="text-primary text-center text-decoration-underline my-3">Declined ( <%= event.invitations.declined.count %> / <%= event.invitations.count %> )</h4>
     <%= render 'admin/invitations/list', invitations: event.invitations.declined, placeholder: 'No one has declined yet.' %>
-    <h4 class="text-primary text-center text-decoration-underline">Pending ( <%= event.invitations.pending.count %> / <%= event.invitations.count %> )</h4>
+    <h4 class="text-primary text-center text-decoration-underline my-3">Pending ( <%= event.invitations.pending.count %> / <%= event.invitations.count %> )</h4>
     <%= render 'admin/invitations/list', invitations: event.invitations.pending, placeholder: 'Everyone has responded.' %>
   <% end %>
 </div>

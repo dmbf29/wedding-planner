@@ -8,7 +8,7 @@ namespace :heroku do
     run 'rails db:drop'
 
     puts '-----> pulling the DB...'
-    run 'heroku pg:pull postgresql-contoured-92476 wedding-planner_development'
+    run 'heroku pg:pull postgresql-contoured-92476 wedding_planner_development'
   end
 
   def run(*cmd)
