@@ -15,5 +15,8 @@ Rails.application.routes.draw do
         post :send_email
       end
     end
+    namespace :admin do
+      resources :invitations, only: [:index]
+    end
   end
 end

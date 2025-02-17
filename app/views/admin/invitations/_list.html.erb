@@ -1,0 +1,14 @@
+<% if invitations.any? %>
+  <ol class="list-group list-group-numbered">
+    <% invitations.each do |invitation| %>
+      <li class="list-group-item">
+        <%= invitation.person.full_name %>
+        <% if invitation.notes %>
+          <blockquote><%= invitation.notes %></blockquote>
+        <% end %>
+      </li>
+    <% end %>
+  </ol>
+<% else %>
+  <p class='text-center'><%= placeholder %></p>
+<% end %>
