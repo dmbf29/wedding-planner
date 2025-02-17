@@ -7,6 +7,9 @@ class Person < ApplicationRecord
 
   pg_search_scope :search_name,
   against: [ :first_name, :last_name ],
+  associated_against: {
+    group: [ :name ]
+  },
   using: {
     tsearch: { prefix: true }
   }
