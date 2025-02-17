@@ -1,6 +1,11 @@
-event = Event.create!(
-  name: "Doug and Hyelim's Wedding",
-  location: "Smith Hanok",
-  address: "22-7 Samcheong-ro, Jongno District, Seoul, South Korea",
-  date: "2024-07-05 11:00:00",
-)
+user = User.find_or_initialize_by(email: 'douglasmberkley@gmail.com')
+unless user.persisted?
+  user.password = ENV['ADMIN_PASSWORD']
+  user.save!
+end
+
+user = User.find_or_initialize_by(email: 'real7210@gmail.com')
+unless user.persisted?
+  user.password = ENV['ADMIN_PASSWORD']
+  user.save!
+end
