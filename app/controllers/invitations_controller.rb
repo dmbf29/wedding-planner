@@ -1,9 +1,9 @@
 class InvitationsController < ApplicationController
   def index
     if params[:name].present?
-      first, last = params[:name].split
-      @person = Person.find_by(first_name: first, last_name: last) || Person.find_by(first_name: last, last_name: first) || Person.find_by(first_name: first) || Person.find_by(last_name: last) || Person.find_by(first_name: last) || Person.find_by(last_name: first)
-      @group = @person.group if @person
+      # first, last = params[:name].split
+      @people = Person.search_name(params[:name])
+      @groups = Group.where(id: @people.pluck(:group_id))
     end
   end
 

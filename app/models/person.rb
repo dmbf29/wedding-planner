@@ -3,6 +3,13 @@ class Person < ApplicationRecord
   has_many :invitations
   has_many :events, through: :invitations
   validates :first_name, uniqueness: { scope: :last_name }
+  include PgSearch::Model
+
+  pg_search_scope :search_name,
+  against: [ :first_name, :last_name ],
+  using: {
+    tsearch: { prefix: true }
+  }
 
   def full_name
     "#{custom_titleize(first_name)} #{custom_titleize(last_name)}"
