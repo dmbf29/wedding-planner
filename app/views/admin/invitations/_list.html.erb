@@ -3,6 +3,9 @@
     <% invitations.each do |invitation| %>
       <li class="list-group-item">
         <%= invitation.person.full_name %>
+        <% if invitation.wants_guest %>
+          <i class="fa-solid fa-user-plus mx-2 text-primary"></i>
+        <% end %>
         <% if invitation.notes %>
           <blockquote><%= invitation.notes %></blockquote>
         <% end %>
