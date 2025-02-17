@@ -1,6 +1,14 @@
 namespace :invitation do
-  desc "Generates invitations"
-  task create_all: :environment do
+  desc "Removes test invitations"
+  task destroy_test: :environment do
+    people = Person.where(first_name: 'Douglas', last_name: 'Berkley').or(Person.where(first_name: 'Hyelim', last_name: 'Kim'))
+    people.each do |person|
+      person.invitations.destroy_all
+    end
+  end
+
+  desc "Generates test invitations"
+  task create_test: :environment do
     celebration = Celebration.find_or_create_by(name: 'Korea Wedding')
 
     Event.find_or_create_by(
@@ -28,6 +36,38 @@ namespace :invitation do
           last_name: 'Kim',
         }
       ],
+    }
+
+    full_list.each do |group_name, attendees|
+      group = Group.find_or_create_by(name: group_name)
+      attendees.each do |attendee|
+        person = Person.find_or_create_by(attendee.merge(group: group))
+        celebration.events.each do |event|
+          Invitation.find_or_create_by(event: event, person: person)
+        end
+      end
+    end
+  end
+
+  desc "Generates invitations"
+  task create_all: :environment do
+    celebration = Celebration.find_or_create_by(name: 'Korea Wedding')
+
+    Event.find_or_create_by(
+      name: 'Wedding Cermony',
+      date: DateTime.new(2025, 07, 05, 11, 30, 0),
+      location: 'Smith Hanok',
+      celebration: celebration
+    )
+
+    Event.find_or_create_by(
+      name: 'Baseball Game',
+      date: DateTime.new(2025, 07, 03, 18, 30, 0),
+      location: 'Jamsil Stadium',
+      celebration: celebration
+    )
+
+    full_list = {
       'Poltas' => [
         {
           first_name: 'John ',
