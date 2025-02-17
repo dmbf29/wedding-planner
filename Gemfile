@@ -81,3 +81,6 @@ end
 gem 'devise-i18n'
 gem 'rails-i18n'
 gem "pg_search"
+gem "stackprof"
+gem "sentry-ruby"
+gem "sentry-rails"
