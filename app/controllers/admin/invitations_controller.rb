@@ -3,5 +3,7 @@ class Admin::InvitationsController < ApplicationController
 
   def index
     @events = Event.order(date: :asc)
+    @group = Group.new
+    @group.people.build
   end
 end

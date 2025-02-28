@@ -206,6 +206,10 @@ namespace :invitation do
         {
           first_name: 'Michael',
           last_name: 'Zinn'
+        },
+        {
+          first_name: 'Isabel',
+          last_name: 'Cayer'
         }
       ],
       'Dan' => [

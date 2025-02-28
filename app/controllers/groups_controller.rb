@@ -16,6 +16,10 @@ class GroupsController < ApplicationController
     @group.people.each do |person|
       UserMailer.with(person: person).rsvp.deliver_now if person.email.present?
     end
-    redirect_to travel_path, notice: "Thank you for completing your RSVP!"
+    redirect_to schedule_path, notice: "Thank you for completing your RSVP!"
+  end
+
+  def create
+    raise
   end
 end

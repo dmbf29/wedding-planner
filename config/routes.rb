@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'rsvp', to: 'pages#rsvp'
     resources :people, only: [:update]
     resources :invitations, only: [:index, :update]
-    resources :groups, only: [:show] do
+    resources :groups, only: [:show, :create] do
       member do
         get :email
         post :send_email

@@ -1,4 +1,49 @@
 <div class="container mb-5">
+  <div class="actions">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      <i class="fa-solid fa-people-group"></i> Add Group of People
+    </button>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">New Group</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <%= simple_form_for @group, data: { controller: 'nested-form', nested_form_wrapper_selector_value: '.nested-form-wrapper' } do |f| %>
+              <%= f.input :name, placeholder: 'The Berkleys' %>
+              <template data-nested-form-target="template">
+                <%= f.simple_fields_for :people, child_index: 'NEW_RECORD' do |person_form| %>
+                  <div class="nested-form-wrapper" data-new-record="<%= person_form.object.new_record? %>">
+                    <div class="d-flex justify-content-between align-items-center w-100">
+                      <%= person_form.input :first_name, placeholder: 'John' %>
+                      <%= person_form.input :last_name, placeholder: 'Doe' %>
+                      <button type="button" data-action="nested-form#remove" class='btn mt-3  '><i class="fa-solid fa-xmark"></i></button>
+                      <%= person_form.hidden_field :_destroy %>
+                    </div>
+                  </div>
+                <% end %>
+              </template>
+              <%= f.simple_fields_for :people do |person_form| %>
+                <div class="d-flex justify-content-between align-items-center w-100">
+                  <%= person_form.input :first_name, placeholder: 'John' %>
+                  <%= person_form.input :last_name, placeholder: 'Doe' %>
+                  <button type="button" data-action="nested-form#remove" class='btn mt-3  opacity-0'><i class="fa-solid fa-xmark"></i></button>
+                </div>
+              <% end %>
+              <!-- Inserted elements will be injected before that target. -->
+              <div data-nested-form-target="target"></div>
+              <button type="button" data-action="nested-form#add" class="btn btn-secondary mt-3">Add person</button>
+              <%= f.submit 'Submit', class: 'btn btn-primary mt-3' %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% @events.each do |event| %>
     <hr>
     <div class="d-flex flex-column text-center mb-3">
