@@ -2,6 +2,10 @@ class PagesController < ApplicationController
   # skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @upload = Upload.new
+  end
+
+  def photos
   end
 
   def travel

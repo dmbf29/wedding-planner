@@ -1,35 +1,9 @@
 <div class="container text-center mb-5">
-  <div class="row">
-    <p class="mb-2">Throughout the years...</p>
-    <!-- <div class="col w-100" style="background-size: cover;height: 400px;background-image: linear-gradient(rgba(0,0,0,0.2),rgba(0,0,0,0.2)), url(<%= image_path 'couple/beach.jpg' %>);"> -->
-    <!--
-    <div class="col w-100 border-white-thick">
-      <%#= image_tag 'couple/beach.jpg', alt: "text", class: 'w-100' %>
-    </div>
-    <div class="col w-100 border-white-thick">
-      <%#= image_tag 'couple/winter.jpg', alt: "text", class: 'w-100' %>
-    </div>
-    -->
-    <% (1..32).each_slice(5).with_index do |slice, i| %>
-      <div class="image-grid mb-2" style="direction: <%= 'rtl' if i.odd? %>;">
-        <% slice.each_with_index do |num, index| %>
-          <div class="image-grid-item <%= index.zero? ? 'main' : "item#{index}" %>">
-            <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-item' %>
-          </div>
-        <% end %>
-      </div>
-    <% end %>
-    <!-- <div class="image-grid-mobile"> -->
-  </div>
-  <% (1..32).each_slice(2) do |nums| %>
-    <div class="row d-md-none">
-      <% nums.each do |num| %>
-        <div class="col-6 g-3">
-          <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
-        </div>
+  <div class="row justify-content-center">
+    <div class="col-12 col-msm-6 col-md-3">
+      <%= simple_form_for @upload do |f| %>
+        <%= f.input :photos, as: :file, label: "Upload Photos", input_html: { multiple: true, onchange: "this.form.requestSubmit();this.label.textContent = 'Uploading...'" } %>
       <% end %>
     </div>
-  <% end %>
-  <!-- </div> -->
+  </div>
 </div>
-<%# johnpolta@gmail@.com %>

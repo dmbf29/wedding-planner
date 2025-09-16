@@ -3,18 +3,28 @@
     <%= link_to 'Home', root_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'home'}"  %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Travel', travel_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'travel'}"  %>
+    <%= link_to 'Uploads', uploads_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'index'}"  %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Schedule', schedule_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'schedule'}"  %>
+    <%= link_to 'Our Photos', photos_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'photos'}"  %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Q&A', question_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'question'}"  %>
+    <%= link_to "https://www.amazon.com/wedding/share/doug_and_hyelim", target: "_blank", class: "nav-link tab-underlined #{ 'active' if params[:action] == 'registry'}" do %>
+      Registry <i class="fa-solid fa-arrow-up-right-from-square"></i>
+    <% end %>
   </li>
-  <!-- <li class="nav-item" role="presentation">
-    <%#= link_to 'Registry', registry_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'registry'}"  %>
-  </li> -->
-  <li class="nav-item" role="presentation">
-    <%= link_to 'RSVP', rsvp_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'rsvp'}"  %>
-  </li>
+  <% if false %>
+    <li class="nav-item" role="presentation">
+      <%= link_to 'Travel', travel_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'travel'}"  %>
+    </li>
+    <li class="nav-item" role="presentation">
+      <%= link_to 'Schedule', schedule_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'schedule'}"  %>
+    </li>
+    <li class="nav-item" role="presentation">
+      <%= link_to 'Q&A', question_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'question'}"  %>
+    </li>
+    <li class="nav-item" role="presentation">
+      <%= link_to 'RSVP', rsvp_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'rsvp'}"  %>
+    </li>
+  <% end %>
 </ul>

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
     get 'schedule', to: 'pages#schedule'
     get 'question', to: 'pages#question'
     get 'registry', to: 'pages#registry'
+    get 'photos', to: 'pages#photos'
     get 'rsvp', to: 'pages#rsvp'
     resources :people, only: [:update]
+    resources :uploads, only: [:index, :create]
     resources :invitations, only: [:index, :update]
     resources :groups, only: [:show, :create] do
       member do
