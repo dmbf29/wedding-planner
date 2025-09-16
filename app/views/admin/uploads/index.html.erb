@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Uploads</h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="cards">
+      <% @uploads.each do |upload| %>
+        <div class="card-trip">
+          <% if upload.photos.attached? %>
+            <div id="carouselUpload-<%= upload.id %>" class="carousel slide">
+              <div class="carousel-inner">
+                <% upload.photos.each_with_index do |photo, index| %>
+                  <div class="carousel-item <%= index.zero? ? 'active' : '' %>">
+                    <%= cl_image_tag photo.key, class: 'd-block w-100' %>
+                  </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselUpload-<%= upload.id %>" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselUpload-<%= upload.id %>" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          <% end %>
+          <div class="card-trip-infos">
+            <div>
+              <h2><i class="fa-solid fa-camera"></i> <%= upload.photos.count %></h2>
+              <p><%= upload.created_at %> - Id: <%= upload.id %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= link_to "Delete", upload_path(upload), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></h2>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

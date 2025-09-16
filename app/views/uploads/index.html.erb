@@ -13,7 +13,7 @@
         <% slice.each_with_index do |photo, index| %>
           <div class="image-grid-item <%= index.zero? ? 'main' : "item#{index}" %>">
             <%#= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-item' %>
-            <%= cl_image_tag photo.key, alt: "text", class: 'image-item' %>
+            <%= cl_image_tag photo.key, alt: "text", class: 'image-item' if photo.key.present? %>
           </div>
         <% end %>
       </div>

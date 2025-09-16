@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get 'photos', to: 'pages#photos'
     get 'rsvp', to: 'pages#rsvp'
     resources :people, only: [:update]
-    resources :uploads, only: [:index, :create]
+    resources :uploads, only: [:index, :create, :destroy]
     resources :invitations, only: [:index, :update]
     resources :groups, only: [:show, :create] do
       member do
@@ -19,6 +19,7 @@ Rails.application.routes.draw do
     end
     namespace :admin do
       resources :invitations, only: [:index]
+      resources :uploads, only: [:index]
     end
   end
 end
