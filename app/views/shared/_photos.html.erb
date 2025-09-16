@@ -1,22 +1,20 @@
-  
 <div class="row">
-  <p class="mb-2">Throughout the years...</p>
-  <% (1..32).each_slice(5).with_index do |slice, i| %>
+  <% (1..number).each_slice(5).with_index do |slice, i| %>
     <div class="image-grid mb-2" style="direction: <%= 'rtl' if i.odd? %>;">
       <% slice.each_with_index do |num, index| %>
         <div class="image-grid-item <%= index.zero? ? 'main' : "item#{index}" %>">
-          <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-item' %>
+          <%= image_tag "#{folder}/#{num}.jpg", alt: "text", class: 'image-item' %>
         </div>
       <% end %>
     </div>
   <% end %>
   <!-- <div class="image-grid-mobile"> -->
 </div>
-<% (1..32).each_slice(2) do |nums| %>
+<% (1..number).each_slice(2) do |nums| %>
   <div class="row d-md-none">
     <% nums.each do |num| %>
       <div class="col-6 g-3">
-        <%= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
+        <%= image_tag "#{folder}/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
       </div>
     <% end %>
   </div>

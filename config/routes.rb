@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'question', to: 'pages#question'
     get 'registry', to: 'pages#registry'
     get 'photos', to: 'pages#photos'
+    get 'wedding', to: 'pages#wedding'
     get 'rsvp', to: 'pages#rsvp'
     resources :people, only: [:update]
     resources :uploads, only: [:index, :create, :destroy]

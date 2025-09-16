@@ -1,12 +1,12 @@
 <ul class="nav tabs-underlined py-3" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
-    <%= link_to 'Home', root_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'home'}"  %>
-  </li>
-  <li class="nav-item" role="presentation">
     <%= link_to 'Party', uploads_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'index'}"  %>
   </li>
   <li class="nav-item" role="presentation">
-    <%= link_to 'Our Photos', photos_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'photos'}"  %>
+    <%= link_to 'Wedding', wedding_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'wedding'}"  %>
+  </li>
+  <li class="nav-item" role="presentation">
+    <%= link_to 'Pre-Wedding', photos_path, class: "nav-link tab-underlined #{ 'active' if params[:action] == 'photos'}"  %>
   </li>
   <li class="nav-item" role="presentation">
     <%= link_to "https://www.amazon.com/wedding/share/doug_and_hyelim", target: "_blank", class: "nav-link tab-underlined #{ 'active' if params[:action] == 'registry'}" do %>

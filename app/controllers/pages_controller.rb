@@ -5,6 +5,9 @@ class PagesController < ApplicationController
     @upload = Upload.new
   end
 
+  def wedding
+  end
+
   def photos
   end
 
