@@ -30,7 +30,7 @@
           <div class="card-trip-infos">
             <div>
               <h2><i class="fa-solid fa-camera"></i> <%= upload.photos.count %></h2>
-              <p><%= upload.created_at %> - Id: <%= upload.id %></p>
+              <p><%= upload.created_at.strftime("%b %e, %l:%M %p") %> - Id: <%= upload.id %></p>
             </div>
             <h2 class="card-trip-pricing"><%= link_to "Delete", upload_path(upload), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></h2>
           </div>

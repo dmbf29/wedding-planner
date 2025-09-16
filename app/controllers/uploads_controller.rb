@@ -9,6 +9,12 @@ class UploadsController < ApplicationController
     redirect_to uploads_path(tab: 'uploads'), notice: "Photos uploaded successfully"
   end
 
+  def destroy
+    @upload = Upload.find(params[:id])
+    @upload.destroy
+    redirect_to uploads_path(tab: 'uploads'), notice: "Photos deleted successfully"
+  end
+
   private
 
   def upload_params
