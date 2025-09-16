@@ -1,0 +1,6 @@
+<%= simple_form_for @upload, html: { data: { controller: 'upload' } } do |f| %>
+  <%= f.label :photos, class: btn_style, data: { upload_target: 'label' } do %>
+    <i class="fa-solid fa-camera"></i> Upload Photos
+  <% end %>
+  <%= f.input_field :photos, as: :file, class: 'd-none', multiple: true, data: { action: 'upload#submit' } %>
+<% end %>

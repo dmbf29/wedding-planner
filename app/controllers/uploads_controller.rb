@@ -1,6 +1,7 @@
 class UploadsController < ApplicationController
   def index
     @photos = Upload.order(created_at: :desc).map(&:photos).flatten
+    @upload = Upload.new
   end
 
   def create

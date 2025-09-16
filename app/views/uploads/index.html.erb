@@ -1,6 +1,13 @@
 <div class="container text-center mb-5">
+  <div class="row justify-content-between">
+    <div class="col text-start">
+      <p class="mb-2">From the party...</p>
+    </div>
+    <div class="col text-end">
+      <%= render "uploads/form", upload: @upload, btn_style: 'text-decoration-none text-primary cursor-pointer' %>
+    </div>
+  </div>
   <div class="row">
-    <p class="mb-2">From the party...</p>
     <% @photos.each_slice(5).with_index do |slice, i| %>
       <div class="image-grid mb-2" style="direction: <%= 'rtl' if i.odd? %>;">
         <% slice.each_with_index do |photo, index| %>
