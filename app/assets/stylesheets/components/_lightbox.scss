@@ -1,0 +1,62 @@
+dialog.lightbox {
+  border: none;
+  padding: 0;
+  // was: max-width: min(90vw, 1200px);
+  // max-width: unquote("min(90vw, 1200px)");
+  max-height: 90vh;
+  width: fit-content;
+  background: transparent;
+}
+
+
+dialog.lightbox::backdrop {
+  background: rgba(0,0,0,.8);
+}
+
+dialog.lightbox img {
+  display: block;
+  max-width: 90vw;
+  max-height: 78vh;
+  height: auto;
+  margin: 0 auto;
+  border-radius: .5rem;
+}
+
+.lightbox-caption {
+  margin-top: .5rem;
+  color: #fff;
+  text-align: center;
+  font-size: .95rem;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: .75rem;
+  right: .75rem;
+  font-size: 1.5rem;
+  line-height: 1;
+  border: 0;
+  background: rgba(0,0,0,.4);
+  color: #fff;
+  border-radius: .375rem;
+  padding: .25rem .5rem;
+  cursor: pointer;
+}
+
+.lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  font-size: 2rem;
+  line-height: 1;
+  padding: .25rem .6rem;
+  border-radius: .5rem;
+  cursor: pointer;
+  user-select: none;
+}
+.lightbox-prev { left: .5rem; }
+.lightbox-next { right: .5rem; }
+.lightbox-nav:focus { outline: 2px solid rgba(255,255,255,.6); outline-offset: 2px; }
