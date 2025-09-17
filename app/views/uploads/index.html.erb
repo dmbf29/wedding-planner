@@ -4,27 +4,50 @@
       <%= render "uploads/form", upload: @upload, btn_style: 'text-decoration-none text-primary cursor-pointer' %>
     </div>
   </div>
-  <div class="row">
+  <div class="row" data-controller="lightbox">
     <% @photos.each_slice(5).with_index do |slice, i| %>
       <div class="image-grid mb-2" style="direction: <%= 'rtl' if i.odd? %>;">
         <% slice.each_with_index do |photo, index| %>
           <div class="image-grid-item <%= index.zero? ? 'main' : "item#{index}" %>">
             <%#= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-item' %>
-            <%= cl_image_tag photo.key, alt: "text", class: 'image-item' if photo.key.present? %>
+            <%= link_to cl_image_path(photo.key), data: { action: "click->lightbox#open", lightbox_src: cl_image_path(photo.key) } do %>
+              <%= cl_image_tag photo.key, alt: "text", class: 'image-item' %>
+            <% end %>
           </div>
         <% end %>
       </div>
     <% end %>
-    <!-- <div class="image-grid-mobile"> -->
+    <!-- The dialog lives inside the same controller scope -->
+    <dialog data-lightbox-target="dialog" class="lightbox">
+      <button type="button" class="lightbox-close" aria-label="Close" data-action="lightbox#close">×</button>
+      <!-- prev/next buttons -->
+      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous" data-action="lightbox#prev">‹</button>
+      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next" data-action="lightbox#next">›</button>
+      <img data-lightbox-target="image" alt="">
+      <figcaption data-lightbox-target="caption" class="lightbox-caption"></figcaption>
+    </dialog>
   </div>
-  <% @photos.each_slice(2) do |slice| %>
-    <div class="row d-md-none">
-      <% slice.each do |photo| %>
-        <div class="col-6 g-3">
-          <%#= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
-          <%= cl_image_tag photo.key, alt: "text", class: 'image-grid-mobile-item' %>
-        </div>
-      <% end %>
-    </div>
-  <% end %>
+  <div data-controller="lightbox">
+    <% @photos.each_slice(2) do |slice| %>
+      <div class="row d-md-none">
+        <% slice.each do |photo| %>
+          <div class="col-6 g-3">
+            <%#= image_tag "dh/#{num}.jpg", alt: "text", class: 'image-grid-mobile-item'%>
+            <%= link_to cl_image_path(photo.key), data: { action: "click->lightbox#open", lightbox_src: cl_image_path(photo.key) } do %>
+              <%= cl_image_tag photo.key, alt: "text", class: 'image-grid-mobile-item' %>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <!-- The dialog lives inside the same controller scope -->
+    <dialog data-lightbox-target="dialog" class="lightbox">
+      <button type="button" class="lightbox-close" aria-label="Close" data-action="lightbox#close">×</button>
+      <!-- prev/next buttons -->
+      <button type="button" class="lightbox-nav lightbox-prev" aria-label="Previous" data-action="lightbox#prev">‹</button>
+      <button type="button" class="lightbox-nav lightbox-next" aria-label="Next" data-action="lightbox#next">›</button>
+      <img data-lightbox-target="image" alt="">
+      <figcaption data-lightbox-target="caption" class="lightbox-caption"></figcaption>
+    </dialog>
+  </div>
 </div>
